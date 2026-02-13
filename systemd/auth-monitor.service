@@ -1,0 +1,26 @@
+[Unit]
+Description=Cloud Security Platform - Authentication Monitor
+After=network.target
+
+[Service]
+Type=simple
+User=authmonitor
+Group=authmonitor
+WorkingDirectory=/opt/cloud-security-platform
+ExecStart=/usr/bin/python3 /opt/cloud-security-platform/auth_monitor.py
+Restart=always
+RestartSec=5
+EnvironmentFile=/etc/infra-alert.env
+
+# Security Hardening
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=full
+ProtectHome=true
+ProtectKernelTunables=true
+ProtectKernelModules=true
+ProtectControlGroups=true
+ReadWritePaths=/var/log
+
+[Install]
+WantedBy=multi-user.target
