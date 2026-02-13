@@ -55,3 +55,18 @@ See: docs/setup-guide.md
 - Log structurally
 - Document clearly
 - Keep architecture intentional
+
+---
+
+## Skills Demonstrated
+
+- Linux system hardening (SSH, UFW, service isolation)
+- systemd service configuration with sandboxing
+- Real-time log monitoring using journalctl
+- Regular expression log parsing
+- Threat intelligence API integration (AbuseIPDB)
+- Secure secret management using environment variables
+- Rate limiting and alert fatigue control logic
+- Structured JSON event logging
+- Cloud VM security design (OCI)
+- Version control using Git and GitHub workflow
