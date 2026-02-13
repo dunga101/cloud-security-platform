@@ -70,3 +70,33 @@ See: docs/setup-guide.md
 - Structured JSON event logging
 - Cloud VM security design (OCI)
 - Version control using Git and GitHub workflow
+
+---
+
+## High-Level Architecture
+
+Internet
+   │
+   ▼
+[ Public OCI VM ]
+   │
+   ├── Hardened Ubuntu Server
+   │     ├── SSH (key-only auth)
+   │     ├── UFW Firewall
+   │     └── Disabled unnecessary services
+   │
+   ├── systemd Service (auth-monitor)
+   │     └── journalctl real-time log stream
+   │
+   ├── Detection Engine (Python)
+   │     ├── Regex-based log parsing
+   │     ├── Dynamic threshold logic
+   │     ├── Rate limiting control
+   │     └── JSON structured logging
+   │
+   ├── Threat Intelligence
+   │     └── AbuseIPDB API enrichment
+   │
+   └── Alerting Layer
+         └── Telegram notifications
+
